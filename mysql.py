@@ -4,6 +4,8 @@ from datetime import datetime
 
 
 class myActiveRecord(object):
+
+
     def writeLog(self, errorClass, e):
         message = "Error class: %s |" \
                   " Error number: %i |" \
@@ -34,12 +36,14 @@ class myActiveRecord(object):
 
     def dropTable(self, table):
         try:
-            # self.cursor.execute(self.drop_table_query)
+            self.cursor.execute('DROP TABLE IF EXISTS `%s`' % (table))
             self.connection.commit()
         except pymysql.Error as e:
             self.writeLog(pymysql.Error, e)
-            print('Drop failed')
+            print('Drop failed!!!')
+    def createTable(self,tableName,listFields):
 
+            pass
 
             # table_user = ("CREATE TABLE IF NOT EXISTS `user` ("
             #               "`id` integer(11) auto_increment,"
