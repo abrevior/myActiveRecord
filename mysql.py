@@ -3,7 +3,7 @@ from warnings import filterwarnings
 from datetime import datetime
 
 
-class myOrm(object):
+class myActiveRecord(object):
     def writeLog(self, errorClass, e):
         message = "Error class: %s |" \
                   " Error number: %i |" \
@@ -63,7 +63,7 @@ class myOrm(object):
             # connection.close()
 
 
-start = myOrm()
+start = myActiveRecord()
 start.connect()
 start.dropTable("user")
 # CREATE TABLE IF NOT EXISTS `user` ("
